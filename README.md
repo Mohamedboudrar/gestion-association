@@ -15,7 +15,7 @@ Une association a besoin d'un système pour gérer :
 - Générer des rapports et statistiques (financiers, participation)
 - Offrir un accès différencié selon les rôles (admin, membre, gestionnaire de projet)
 
-### 1.3 Périmètre (à valider avec le maître de stage)
+### 1.3 Périmètre 
 - Gestion des abonnés : oui
 - Gestion des projets : oui
 - Paiement en ligne : à confirmer (Stripe/PayPal ou suivi manuel)
@@ -329,37 +329,3 @@ src/
 - Déploiement (staging puis production)
 - Documentation technique et utilisateur
 
-> Durées à adapter selon la durée totale de ton stage.
-
----
-
-## 9. Livrables attendus (typiques pour un stage)
-
-1. Cahier des charges / spécifications fonctionnelles
-2. Maquettes UI (Figma ou équivalent)
-3. Schéma de base de données (MCD/MLD)
-4. Code source (backend + frontend) versionné sur Git
-5. Documentation technique (README, API docs — ex. Swagger/Postman)
-6. Manuel utilisateur simple
-7. Rapport de stage détaillant l'architecture et les choix techniques
-
----
-
-## 10. Idées d'évolutions futures (bonus)
-
-- Application mobile (React Native/Flutter)
-- Espace membre avec forum/communauté
-- Système de bénévolat/heures de volontariat
-- Génération automatique de certificats d'adhésion
-- Intégration calendrier (événements de l'association)
-- Signature électronique de documents (adhésion, décharge)
-
----
-
-## 11. Prochaines étapes concrètes
-
-1. Valider ce périmètre avec ton maître de stage
-2. Confirmer la stack technique imposée (s'il y en a une)
-3. Créer les maquettes des écrans principaux
-4. Concevoir le schéma de base de données définitif
-5. Initialiser le dépôt Git et la structure du projet
