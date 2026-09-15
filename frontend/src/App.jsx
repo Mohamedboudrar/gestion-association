@@ -1,121 +1,263 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { AuthProvider } from './context/AuthContext'
+import { SettingsProvider } from './context/SettingsContext'
+import ActivityLogsPage from './pages/ActivityLogsPage'
+import CommitteesPage from './pages/CommitteesPage'
+import CommitteeProjectPage from './pages/CommitteeProjectPage'
+import DashboardPage from './pages/DashboardPage'
+import DonationsPage from './pages/DonationsPage'
+import ExpensesPage from './pages/ExpensesPage'
+import PendingPhaseRequestsPage from './pages/PendingPhaseRequestsPage'
+import PendingProjectDeletionRequestsPage from './pages/PendingProjectDeletionRequestsPage'
+import FinancePage from './pages/FinancePage'
+import LoginPage from './pages/LoginPage'
+import MemberPortalLoginPage from './pages/MemberPortalLoginPage'
+import MembersPage from './pages/MembersPage'
+import ModulePlaceholderPage from './pages/ModulePlaceholderPage'
+import NotificationsPage from './pages/NotificationsPage'
+import ProjectsPage from './pages/ProjectsPage'
+import ProfilePage from './pages/ProfilePage'
+import ReportsPage from './pages/ReportsPage'
+import SettingsPage from './pages/SettingsPage'
+import SubscriptionsPage from './pages/SubscriptionsPage'
+import ProtectedRoute from './routes/ProtectedRoute'
+
+// Title/description/highlights/backendStatus text lives in
+// locales/{fr,en}/common.json under `modules.<key>` — resolved via t() in
+// App() below, not stored here as literal strings, so ModulePlaceholderPage
+// renders in whichever language is active.
+const moduleRoutes = [
+  { path: '/members', key: 'members' },
+  { path: '/members/board', key: 'members_board' },
+  { path: '/members/subscribers', key: 'members_subscribers' },
+  { path: '/members/new', key: 'members_new' },
+  { path: '/subscriptions', key: 'subscriptions' },
+  { path: '/subscriptions/pending', key: 'subscriptions_pending' },
+  { path: '/subscriptions/receipts', key: 'subscriptions_receipts' },
+  { path: '/projects', key: 'projects' },
+  { path: '/projects/new', key: 'projects_new' },
+  { path: '/committees', key: 'committees' },
+  { path: '/reports', key: 'reports' },
+  { path: '/donations', key: 'donations' },
+  { path: '/financial-operations', key: 'financial_operations' },
+  { path: '/activity-logs', key: 'activity_logs' },
+  { path: '/settings/security', key: 'settings_security' },
+]
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { t } = useTranslation('common')
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <SettingsProvider>
+    <AuthProvider>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
 
-      <div className="ticks"></div>
+        {/* Passkey login for subscribers — a second entry point into the
+            SAME AuthContext session as /login (see AuthContext.loginWithPasskey).
+            No separate dashboard/portal: on success this redirects to
+            /dashboard like any other login, where PresidentLayout's nav
+            renders whatever this user's permissions/committee assignments
+            allow. */}
+        <Route path="/member" element={<MemberPortalLoginPage />} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/members"
+          element={
+            <ProtectedRoute>
+              <MembersPage mode="all" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/members/subscribers"
+          element={
+            <ProtectedRoute>
+              <MembersPage mode="subscribers" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/members/new"
+          element={
+            <ProtectedRoute>
+              <MembersPage mode="new" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/subscriptions"
+          element={
+            <ProtectedRoute>
+              <SubscriptionsPage mode="all" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/subscriptions/pending"
+          element={
+            <ProtectedRoute>
+              <SubscriptionsPage mode="pending" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/subscriptions/receipts"
+          element={
+            <ProtectedRoute>
+              <SubscriptionsPage mode="receipts" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <ProtectedRoute>
+              <ProjectsPage mode="all" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/projects/:projectId"
+          element={
+            <ProtectedRoute>
+              <CommitteeProjectPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/projects/new"
+          element={
+            <ProtectedRoute>
+              <ProjectsPage mode="new" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/donations"
+          element={
+            <ProtectedRoute>
+              <DonationsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/finance"
+          element={
+            <ProtectedRoute>
+              <FinancePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/expenses"
+          element={
+            <ProtectedRoute>
+              <ExpensesPage mode="all" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/expenses/pending"
+          element={
+            <ProtectedRoute>
+              <ExpensesPage mode="pending" />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/phase-requests/pending"
+          element={
+            <ProtectedRoute>
+              <PendingPhaseRequestsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/deletion-requests/pending"
+          element={
+            <ProtectedRoute>
+              <PendingProjectDeletionRequestsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/committees"
+          element={
+            <ProtectedRoute>
+              <CommitteesPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/reports"
+          element={
+            <ProtectedRoute>
+              <ReportsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/activity-logs"
+          element={
+            <ProtectedRoute>
+              <ActivityLogsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/notifications"
+          element={
+            <ProtectedRoute>
+              <NotificationsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <SettingsPage />
+            </ProtectedRoute>
+          }
+        />
+        {moduleRoutes.map((route) => (
+          <Route
+            key={route.path}
+            path={route.path}
+            element={
+              <ProtectedRoute>
+                <ModulePlaceholderPage
+                  title={t(`modules.${route.key}.title`)}
+                  description={t(`modules.${route.key}.description`)}
+                  highlights={t(`modules.${route.key}.highlights`, { returnObjects: true })}
+                  backendStatus={t(`modules.${route.key}.backendStatus`)}
+                />
+              </ProtectedRoute>
+            }
+          />
+        ))}
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </AuthProvider>
+    </SettingsProvider>
   )
 }
 

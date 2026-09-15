@@ -1,0 +1,275 @@
+{
+  "nav": {
+    "overview": "Vue d'ensemble",
+    "dashboard": "Tableau de bord",
+    "association": "Association",
+    "subscribers": "Abonnés",
+    "projects": "Projets",
+    "allProjects": "Tous les projets",
+    "myProjects": "Mes projets",
+    "committees": "Comités",
+    "finance": "Finances",
+    "financeOverview": "Aperçu financier",
+    "donations": "Dons",
+    "expenses": "Dépenses",
+    "approvals": "Approbations",
+    "subscriptionPayments": "Paiements de cotisation",
+    "expenseApprovals": "Approbations de dépenses",
+    "pendingExpenseApprovals": "Approbations de dépenses en attente",
+    "phaseRequests": "Demandes de phase",
+    "pendingPhaseRequests": "Demandes de phase en attente",
+    "deletionRequests": "Demandes de suppression",
+    "reports": "Rapports",
+    "administration": "Administration",
+    "activityLogs": "Journal d'activité",
+    "settings": "Paramètres",
+    "subscriptions": "Cotisations",
+    "mySubscription": "Ma cotisation",
+    "notifications": "Notifications",
+    "profile": "Profil"
+  },
+  "actions": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "filters": "Filtres",
+    "sort": "Trier",
+    "clearFilters": "Effacer les filtres",
+    "download": "Télécharger",
+    "downloadPdf": "Télécharger le PDF",
+    "downloadExcel": "Télécharger Excel",
+    "add": "Ajouter",
+    "create": "Créer",
+    "update": "Mettre à jour",
+    "submit": "Soumettre",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "view": "Voir",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "expandSidebar": "Développer le menu",
+    "collapseSidebar": "Réduire le menu",
+    "collapse": "Réduire",
+    "openNavigation": "Ouvrir le menu",
+    "closeNavigation": "Fermer le menu",
+    "markAllRead": "Tout marquer comme lu",
+    "markRead": "Marquer comme lu",
+    "retry": "Réessayer",
+    "upload": "Téléverser",
+    "export": "Exporter",
+    "print": "Imprimer",
+    "reset": "Réinitialiser"
+  },
+  "status": {
+    "pending": "En attente",
+    "approved": "Approuvé",
+    "rejected": "Rejeté",
+    "paid": "Payé",
+    "completed": "Terminé",
+    "draft": "Brouillon",
+    "cancelled": "Annulé",
+    "verified": "Vérifié",
+    "expired": "Expiré",
+    "partial": "Partiel",
+    "overdue": "En retard",
+    "waived": "Exonéré",
+    "committee_ready": "Comité constitué",
+    "funding_ready": "Prêt pour financement",
+    "active": "Actif",
+    "planned": "Planifié",
+    "planning": "Planification",
+    "preparation": "Préparation",
+    "in_progress": "En cours",
+    "finishing": "Finalisation"
+  },
+  "roles": {
+    "president": "Président",
+    "vice-president": "Vice-président",
+    "tresorier": "Trésorier",
+    "vice-tresorier": "Vice-trésorier",
+    "secretaire-general": "Secrétaire général",
+    "vice-secretaire-general": "Vice-secrétaire général",
+    "conseiller": "Conseiller",
+    "abonne": "Abonné"
+  },
+  "loading": "Chargement…",
+  "noData": "Aucune donnée disponible",
+  "error": {
+    "generic": "Une erreur est survenue. Veuillez réessayer.",
+    "loadFailed": "Échec du chargement des données."
+  },
+  "confirmDialog": {
+    "areYouSure": "Êtes-vous sûr ?"
+  },
+  "workspace": {
+    "presidentControlCenter": "Centre de contrôle du président",
+    "roleWorkspace": "Espace {{role}}",
+    "subscriberDashboard": "Tableau de bord abonné"
+  },
+  "executiveOverview": "Aperçu exécutif de l'association.",
+  "closeNavigationAria": "Fermer la navigation",
+  "openNavigationAria": "Ouvrir la navigation",
+  "currencyUnavailable": "Indisponible",
+  "dateUnknown": "Inconnue",
+  "relativeTime": {
+    "minutesAgo": "Il y a {{count}} min",
+    "hoursAgo": "Il y a {{count}} h",
+    "daysAgo": "Il y a {{count}} j",
+    "recently": "Récemment"
+  },
+  "committeeRoles": {
+    "leader": "Responsable",
+    "treasurer": "Trésorier",
+    "secretary": "Secrétaire",
+    "member": "Membre"
+  },
+  "modules": {
+    "members": {
+      "title": "Tous les abonnés",
+      "description": "Gestion complète des abonnés, attribution des rôles, historique des paiements, dons, comités et documents.",
+      "highlights": ["Ajouter, modifier, désactiver des abonnés", "Attribuer des rôles associatifs", "Consulter l'historique des cotisations et des dons", "Consulter les documents téléversés des abonnés"],
+      "backendStatus": "La gestion des abonnés est disponible. Une liste dédiée avec filtres et vues détaillées est encore en préparation."
+    },
+    "members_board": {
+      "title": "Membres du bureau",
+      "description": "Vue ciblée sur la direction du bureau et les membres de gouvernance.",
+      "highlights": ["Liste du bureau", "Attribution des rôles", "Suivi des mandats", "Documents de gouvernance"],
+      "backendStatus": "Une vue dédiée aux membres du bureau n'est pas encore disponible."
+    },
+    "members_subscribers": {
+      "title": "Abonnés",
+      "description": "Vue opérationnelle des abonnés actifs et inactifs de l'association.",
+      "highlights": ["Statut de cotisation", "Historique des paiements", "Accès aux reçus", "Filtrage par cycle de vie"],
+      "backendStatus": "Les informations des abonnés sont disponibles via Abonnés et Cotisations. Une vue combinée est encore en préparation."
+    },
+    "members_new": {
+      "title": "Ajouter un abonné",
+      "description": "Flux du président pour intégrer un nouvel abonné de l'association.",
+      "highlights": ["Formulaire d'informations personnelles", "Attribution de rôle", "Configuration initiale de la cotisation", "Téléversement de documents"],
+      "backendStatus": "Un formulaire d'intégration dédié pour les nouveaux abonnés est encore en préparation."
+    },
+    "subscriptions": {
+      "title": "Paiements de cotisation",
+      "description": "Suivi des cotisations annuelles avec vérification des paiements et accès aux reçus.",
+      "highlights": ["Filtres payé/en attente/en retard", "Filtre par année", "Vérification des reçus", "Vue du solde restant"],
+      "backendStatus": "Les paiements de cotisation sont disponibles. Un tableau dédié avec filtres et vérification des reçus est encore en préparation."
+    },
+    "subscriptions_pending": {
+      "title": "Paiements en attente",
+      "description": "File prioritaire pour les cotisations impayées ou non vérifiées.",
+      "highlights": ["File d'examen en attente", "Actions d'approbation", "Suivi des reçus", "Flux de rappel"],
+      "backendStatus": "Une vue ciblée pour les paiements en attente est encore en préparation."
+    },
+    "subscriptions_receipts": {
+      "title": "Reçus",
+      "description": "Vérification centralisée des reçus, preuve de paiement des cotisations.",
+      "highlights": ["Aperçu des reçus", "Piste de vérification", "Détection des reçus manquants", "Lien avec l'abonné"],
+      "backendStatus": "Un écran dédié à la vérification des reçus est encore en préparation."
+    },
+    "projects": {
+      "title": "Tous les projets",
+      "description": "Centre de pilotage des projets de l'association avec suivi de la progression, du budget et du comité.",
+      "highlights": ["Cycle de vie du projet", "Budget et fonds collectés", "Affectation du comité", "Documents justificatifs"],
+      "backendStatus": "Le suivi des projets est disponible. Un espace de travail complet est encore en préparation."
+    },
+    "projects_new": {
+      "title": "Créer un projet",
+      "description": "Flux du président pour la création de projet, de la configuration à l'affectation du comité.",
+      "highlights": ["Formulaire d'informations du projet", "Définition du budget", "Affectation du comité", "Lancement du flux"],
+      "backendStatus": "Un formulaire dédié à la création de projet est encore en préparation."
+    },
+    "committees": {
+      "title": "Comités",
+      "description": "Gestion des comités pour les équipes projet, les rôles et le suivi de la progression.",
+      "highlights": ["Liste du comité", "Changements de rôle", "Lien avec le projet", "Vue de la progression"],
+      "backendStatus": "Les comités sont actuellement gérés via la liste des membres de chaque projet. Une vue dédiée est encore en préparation."
+    },
+    "reports": {
+      "title": "Rapports",
+      "description": "Centre de rapports de l'association pour les projets, finances, dons, cotisations et activité des comités.",
+      "highlights": ["Résumés financiers", "Graphiques et exports", "Rapports annuels", "PDF téléchargeables"],
+      "backendStatus": "Les rapports individuels sont disponibles. Un centre de rapports dédié est encore en préparation."
+    },
+    "donations": {
+      "title": "Dons",
+      "description": "Suivi des dons entre membres, projets, reçus et historique des contributions.",
+      "highlights": ["Fiches donateurs", "Attribution au projet", "Téléversement de reçu", "Chronologie des dons"],
+      "backendStatus": "Ce module est entièrement disponible."
+    },
+    "financial_operations": {
+      "title": "Opérations financières",
+      "description": "Registre global de l'activité financière au niveau des projets, à l'échelle de l'association.",
+      "highlights": ["Filtrage par date et par projet", "Documents justificatifs", "Saisi par", "Suivi du statut"],
+      "backendStatus": "Ce module est encore en cours de développement."
+    },
+    "activity_logs": {
+      "title": "Journal d'activité",
+      "description": "Piste d'audit chronologique des actions importantes de l'association.",
+      "highlights": ["Contexte utilisateur et module", "Vue chronologique", "Filtrage des actions", "Support d'investigation"],
+      "backendStatus": "L'historique d'activité est disponible. Une vue chronologique dédiée est encore en préparation."
+    },
+    "settings_security": {
+      "title": "Sécurité",
+      "description": "Contrôles de mot de passe, de sessions et de protection du compte.",
+      "highlights": ["Mise à jour du mot de passe", "Gestion des sessions", "Préparation 2FA", "Piste d'audit de sécurité"],
+      "backendStatus": "Ce module est encore en cours de développement."
+    }
+  },
+  "modulePlaceholder": {
+    "plannedExperienceTitle": "Expérience prévue",
+    "plannedExperienceSubtitle": "Ce que ce module proposera une fois prêt.",
+    "statusTitle": "Statut",
+    "statusSubtitle": "Où en est ce module actuellement.",
+    "defaultBackendStatus": "Ce module est encore en cours de développement.",
+    "nextStepTitle": "Prochaine étape",
+    "nextStepSubtitle": "Cette page est un aperçu. L'expérience complète arrive bientôt."
+  },
+  "auth": {
+    "tagline": "Gestion des abonnés et des projets",
+    "taglineDescription": "Plateforme de gestion des membres, cotisations et projets associatifs.",
+    "heroAlt": "Illustration de gestion associative",
+    "welcome": "Bienvenue",
+    "signInPrompt": "Connectez-vous à votre compte.",
+    "email": "E-mail",
+    "emailPlaceholder": "exemple@email.com",
+    "password": "Mot de passe",
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
+    "show": "Afficher",
+    "hide": "Masquer",
+    "rememberMe": "Se souvenir de moi",
+    "signingIn": "Connexion en cours…",
+    "forgotPassword": "Mot de passe oublié ?",
+    "memberPortalTitle": "Portail membre de {{association}}",
+    "memberPortalSubtitle": "Saisissez votre code d'accès à 6 chiffres pour continuer.",
+    "passkeyAriaLabel": "Code d'accès à 6 chiffres",
+    "checking": "Vérification...",
+    "continue": "Continuer",
+    "forgotPasskey": "Code d'accès oublié ?",
+    "registeredEmail": "E-mail enregistré",
+    "sending": "Envoi...",
+    "sendNewPasskey": "Envoyer un nouveau code d'accès"
+  },
+  "map": {
+    "noResults": "Aucun résultat trouvé.",
+    "searchFailed": "Échec de la recherche. Veuillez réessayer.",
+    "pickerUnavailableTitle": "Sélecteur de carte indisponible",
+    "pickerUnavailableBody": "La sélection de localisation n'est pas disponible pour le moment.",
+    "searchPlaceholder": "Rechercher par adresse, ville, point de repère ou lieu",
+    "unnamedLocation": "Lieu sans nom",
+    "selected": "Sélectionné : {{lat}}, {{lng}}",
+    "noLocationSelected": "Aucun emplacement sélectionné — cliquez sur la carte pour placer un repère.",
+    "clear": "Effacer",
+    "untitledProject": "Projet sans titre",
+    "openProject": "Ouvrir le projet",
+    "previewUnavailable": "L'aperçu de la carte n'est pas disponible pour le moment."
+  }
+}

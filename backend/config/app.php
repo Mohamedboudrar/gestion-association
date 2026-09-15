@@ -54,6 +54,11 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    // The React SPA's own base URL (not this backend's) — used only to build
+    // links back to the frontend in emails, e.g. the Member Portal link in
+    // the welcome/passkey-reset emails. Defaults to the Vite dev server.
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost:5173'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -78,9 +83,13 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    // French is the association's only operating language — no other locale
+    // is selectable, so fallback is French too (a missing key surfaces as
+    // the raw key itself, which is easy to spot and fix, rather than
+    // silently degrading to English text).
+    'locale' => env('APP_LOCALE', 'fr'),
 
-    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'fr'),
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 

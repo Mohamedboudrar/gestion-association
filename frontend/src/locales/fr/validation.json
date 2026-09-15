@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "emailRequired": "L'adresse e-mail est requise.",
+    "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+    "passwordRequired": "Le mot de passe est requis.",
+    "loginFailed": "Impossible de se connecter. Veuillez réessayer.",
+    "passkeyRequired": "Saisissez votre code d'accès à 6 chiffres.",
+    "tooManyAttempts": "Trop de tentatives. Veuillez réessayer plus tard.",
+    "invalidPasskey": "Code d'accès invalide. Veuillez réessayer.",
+    "tooManyRequests": "Trop de requêtes. Veuillez réessayer plus tard.",
+    "passkeyResetGenericMessage": "Si cette adresse e-mail est enregistrée et vérifiée, un nouveau code d'accès a été envoyé."
+  },
+  "expenseImport": {
+    "unsupportedFileType": "Type de fichier non pris en charge. Veuillez téléverser un fichier .csv ou .xlsx.",
+    "supplierNameRequired": "Le nom du fournisseur est requis.",
+    "descriptionRequired": "La description est requise.",
+    "amountInvalid": "Le montant doit être un nombre d'au moins 0,01.",
+    "paymentMethodRequired": "Le mode de paiement est requis.",
+    "expenseDateInvalid": "Une date de dépense valide est requise."
+  }
+}

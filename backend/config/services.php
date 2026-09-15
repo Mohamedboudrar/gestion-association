@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'mailersend' => [
+        'key' => env('MAILERSEND_API_KEY'),
+        'from_email' => env('MAILERSEND_FROM_EMAIL'),
+        'from_name' => env('MAILERSEND_FROM_NAME'),
+    ],
+
 ];

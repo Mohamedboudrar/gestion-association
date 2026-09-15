@@ -1,0 +1,35 @@
+{
+  "title": "Notifications",
+  "markAllAsRead": "Tout marquer comme lu",
+  "empty": "Aucune notification pour le moment.",
+  "viewAll": "Voir toutes les notifications",
+  "categories": {
+    "all": "Tous les types",
+    "membership": "Adhésion",
+    "projects": "Projets",
+    "expenses": "Dépenses",
+    "donations": "Dons",
+    "committee": "Comité",
+    "other": "Autre"
+  },
+  "page": {
+    "description": "Toutes les actions, approbations, échéances et rappels pertinents pour votre rôle.",
+    "loadError": "Impossible de charger les notifications.",
+    "statusTabs": {
+      "all": "Toutes",
+      "unread": "Non lues",
+      "read": "Lues"
+    },
+    "typeLabel": "Type",
+    "from": "Du",
+    "to": "Au",
+    "count_one": "{{count}} notification",
+    "count_other": "{{count}} notifications",
+    "previousPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "pageOf": "Page {{page}} sur {{lastPage}}",
+    "empty": "Aucune notification ne correspond aux filtres actuels.",
+    "markRead": "Marquer comme lue",
+    "deleteAria": "Supprimer la notification"
+  }
+}

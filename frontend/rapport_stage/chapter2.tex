@@ -1,0 +1,149 @@
+% ============================================================================
+% CHAPITRE 2 — Étude préalable
+% Structure alignée sur la table des matières cible
+% ============================================================================
+\openchapter{Étude préalable}
+
+\section{Introduction}
+
+Avant de détailler la conception et la réalisation du projet (chapitre~3), ce
+chapitre propose une étude préalable du sujet : pourquoi une plateforme dédiée
+est nécessaire, à qui elle s'adresse, quelles approches alternatives existent
+et pourquoi elles ne répondent pas au besoin, ainsi que le cadrage logique du
+problème à résoudre.
+
+\section{Pourquoi ce projet, à qui il s'adresse, approches existantes}
+
+\subsection{Pourquoi ce projet ?}
+
+Le fonctionnement d'une association repose sur deux flux qui doivent rester
+étroitement liés : la cotisation annuelle que chaque adhérent verse selon les
+résultats de l'assemblée générale, et les projets associatifs (forage de
+puits, construction ou rénovation de mosquées, aide aux veuves et aux
+orphelins, etc.) que l'association finance grâce à ces cotisations, aux dons
+de ses propres membres ou de bienfaiteurs, ainsi qu'aux dons de l'État et
+d'autres associations. Avant de lancer un projet, le bureau constitue un
+comité chargé de le mener de A à Z, et chaque membre du comité doit pouvoir
+saisir les opérations qui relèvent de son rôle : montant des dons reçus,
+reçus de paiement, factures des fournisseurs. À la fin du projet, le comité
+doit produire un rapport détaillant les entrées et les dépenses, accompagné
+des factures, bons et copies de chèques ; le bureau, de son côté, doit
+présenter un rapport annuel aux adhérents.
+
+Tant que ce suivi repose sur des tableurs et des dossiers papier, il devient
+rapidement fragile : rien n'empêche une saisie en double ou une perte de
+justificatif, rien ne garantit qu'un membre du comité ne voie que ce qui
+relève de son rôle, et un adhérent n'a aucun moyen simple de connaître sa
+propre situation (cotisation payée, dons effectués, solde dû). Un système
+qui centralise ces opérations, applique des droits différenciés selon le rôle
+de chaque membre et conserve une traçabilité systématique des justificatifs
+répond directement à cette limite.
+
+\subsection{À qui s'adresse ce projet ?}
+
+Le projet s'adresse à l'ensemble des parties prenantes d'une association
+telle que décrite dans son cahier des charges : le \textbf{bureau de
+l'association} (président, vice-président, trésorier, vice-trésorier,
+secrétaire général, vice-secrétaire général et conseillers), qui pilote
+l'association et supervise l'ensemble des projets et des cotisations ; les
+\textbf{comités de projet}, constitués ponctuellement par le bureau pour
+mener un projet donné, dont les membres saisissent les opérations financières
+de ce projet selon leur rôle au sein du comité ; et les \textbf{adhérents}
+(abonnés), qui financent l'association par leur cotisation et peuvent, selon
+le cas, être aussi des donateurs ou des membres de comité. Les huit rôles
+identifiés et leurs droits respectifs sont détaillés au chapitre~3
+(section~III).
+
+\subsection{Approches existantes}
+
+Trois grandes familles d'outils permettent, en théorie, de gérer les
+cotisations et les projets d'une association :
+
+\begin{itemize}
+  \item \textbf{Le suivi manuel (tableurs et papier)} — rapide à mettre en
+    place, sans coût de développement, mais sans droits d'accès
+    différenciés, sans traçabilité systématique des justificatifs, et sans
+    consultation en libre-service pour l'adhérent : chaque demande de
+    situation personnelle repasse par le bureau.
+
+  \item \textbf{Un logiciel de comptabilité générique} — apporte une
+    tenue de compte robuste, mais n'est pas structuré autour de la notion
+    de \emph{comité de projet} : il ne distingue pas nativement les droits
+    d'un trésorier de comité de ceux d'un simple membre, ne rattache pas un
+    don ou une dépense à un projet et à son cycle de vie propre (comité
+    constitué, financement réuni, projet actif, clôturé), et ne propose
+    aucun espace personnel pour un adhérent. Son coût de licence est en
+    outre disproportionné pour une association à but non lucratif.
+
+  \item \textbf{Une plateforme de gestion associative sur mesure} —
+    conçue autour des besoins réels exprimés dans le cahier des charges du
+    stage : cotisations annuelles, projets avec comités dédiés, saisie des
+    opérations selon le rôle de chaque membre, justificatifs numérisés
+    (reçus, factures, photos de chèques ou d'ordres de virement), rapport de
+    clôture par projet et historique personnel pour chaque adhérent.
+\end{itemize}
+
+C'est cette troisième approche qui a été retenue : elle seule permet de
+modéliser fidèlement la structure à deux niveaux de l'association (rôle
+global dans le bureau, rôle local dans un comité de projet) et de répondre
+point par point aux exigences du cahier des charges, ce qu'aucun outil
+générique ne permet sans détournement de son usage prévu.
+
+\section{Cadrage logique}
+
+\subsection{Problématique et enjeux}
+
+L'enjeu du projet est double : offrir au bureau et aux comités de projet un
+outil qui centralise et sécurise la gestion des cotisations et des
+opérations financières, tout en restant suffisamment simple pour être adopté
+par des utilisateurs non spécialistes de l'informatique.
+
+\subsection{Arbre à problèmes et arbre à solutions}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[node distance=0.9cm and 0.5cm]
+    \node[problembox] (p1) {Suivi des cotisations et des dons dispersé sur papier et tableurs};
+    \node[problembox, right=of p1] (p2) {Aucune séparation des droits selon le rôle dans le comité de projet};
+    \node[problembox, right=of p2] (p3) {Absence de traçabilité centralisée des justificatifs (reçus, factures, chèques)};
+    \node[concbox, below=1.4cm of p2] (pc) {Gestion associative peu fiable et chronophage};
+    \draw[bluearrow] (p1.south) -- (pc.north -| p1.south);
+    \draw[bluearrow] (p2.south) -- (pc.north);
+    \draw[bluearrow] (p3.south) -- (pc.north -| p3.south);
+  \end{tikzpicture}
+  \caption{Arbre à problèmes : causes principales d'une gestion associative peu fiable.}
+  \label{fig:arbre-problemes}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[node distance=0.9cm and 0.5cm]
+    \node[problembox] (s1) {Plateforme centralisée de gestion des cotisations et des dons};
+    \node[problembox, right=of s1] (s2) {Droits d'accès différenciés par rôle global et par rôle de comité};
+    \node[problembox, right=of s2] (s3) {Traçabilité systématique des opérations avec justificatifs numérisés};
+    \node[concbox, below=1.4cm of s2] (sc) {Système de gestion associative fiable et traçable};
+    \draw[bluearrow] (s1.south) -- (sc.north -| s1.south);
+    \draw[bluearrow] (s2.south) -- (sc.north);
+    \draw[bluearrow] (s3.south) -- (sc.north -| s3.south);
+  \end{tikzpicture}
+  \caption{Arbre à solutions : réponses apportées aux causes identifiées.}
+  \label{fig:arbre-solutions}
+\end{figure}
+
+\subsection{Objectif général du projet}
+
+Concevoir et développer une plateforme web permettant au bureau de
+l'association de gérer ses adhérents, ses cotisations annuelles et ses
+projets associatifs ; aux comités constitués pour chaque projet de saisir les
+opérations financières selon les droits de leurs membres ; et à chaque
+adhérent de consulter en libre-service son propre historique (cotisation,
+dons, solde dû) — le tout avec une traçabilité complète des opérations et de
+leurs justificatifs.
+
+\section{Conclusion}
+
+Ce chapitre a posé le cadre logique du projet : pourquoi une plateforme
+dédiée est nécessaire, à qui elle s'adresse, pourquoi les approches
+existantes n'y répondent pas, et quel objectif général elle poursuit. Le
+chapitre suivant détaille les missions et travaux réalisés : la modélisation
+conceptuelle du système retenu et sa mise en \oe uvre informatique.

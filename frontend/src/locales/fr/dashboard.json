@@ -1,0 +1,191 @@
+{
+  "unknownDonor": "Donateur inconnu",
+  "unassignedProject": "Projet non assigné",
+  "activity": {
+    "unknownActor": "Quelqu'un",
+    "events": {
+      "created": "a ajouté",
+      "updated": "a modifié",
+      "deleted": "a supprimé",
+      "changed": "a modifié"
+    },
+    "subjects": {
+      "member": "un membre",
+      "project": "un projet",
+      "subscription": "une cotisation",
+      "donation": "un don",
+      "record": "un enregistrement"
+    },
+    "sentence": "{{causer}} {{event}} {{subject}}"
+  },
+  "president": {
+    "title": "Tableau de bord président",
+    "statusLabel": "Statut de l'association :",
+    "healthy": "Sain",
+    "needsAttention": "Nécessite une attention",
+    "activeProjects": "projets actifs",
+    "pendingApprovals": "approbations en attente",
+    "available": "disponible",
+    "overdueSubscriptions": "cotisations en retard",
+    "committeesNeedAttention": "comité(s) nécessitant une attention",
+    "addSubscriber": "Ajouter un abonné",
+    "createProject": "Créer un projet",
+    "createCommittee": "Créer un comité",
+    "annualReport": "Rapport annuel",
+    "annualReportTooltip": "Télécharge le rapport des projets",
+    "reportDownloadError": "Impossible de télécharger ce rapport."
+  },
+  "bureau": {
+    "title": "Tableau de bord bureau",
+    "description": "Bienvenue sur votre tableau de bord bureau."
+  },
+  "subscriber": {
+    "description": "Bienvenue sur votre tableau de bord abonné.",
+    "noAssignmentsTitle": "Aucune affectation à un projet",
+    "noAssignmentsBureau": "Vous n'êtes actuellement affecté à aucun comité de projet. Utilisez les sections Abonnés, Cotisations et Projets dans le menu latéral pour consulter les données de l'association.",
+    "noAssignmentsSubscriber": "Vous n'êtes actuellement affecté à aucun projet. Consultez Ma cotisation et Mes dons dans le menu latéral pour vos propres informations.",
+    "profile": "Profil",
+    "subscriptionCard": "Cotisation",
+    "noneOnFile": "Aucune information enregistrée",
+    "expires": "Expire le {{date}}"
+  },
+  "committee": {
+    "title": "Mes projets",
+    "description": "Tableau de bord du comité, limité aux projets qui vous sont actuellement affectés.",
+    "assignedProjects": "Projets affectés",
+    "assignedProjectsNote": "Projets actuellement affectés à votre appartenance au comité.",
+    "activeProjects": "Projets actifs",
+    "activeProjectsNote": "Projets affectés actuellement marqués comme actifs.",
+    "donations": "Dons",
+    "donationsNote": "Totaux collectés pour vos projets affectés.",
+    "expenses": "Dépenses",
+    "expensesNote": "Somme des dépenses liées à vos projets affectés.",
+    "expensesLoadError": "Impossible de charger les dépenses des projets affectés.",
+    "assignedProjectsTable": "Projets affectés",
+    "assignedProjectsTableNote": "Uniquement les projets où vous êtes affecté comme membre du comité.",
+    "assignedCount": "{{count}} affecté(s)",
+    "loading": "Chargement des projets affectés…",
+    "noProjectsAssigned": "Aucun projet n'est actuellement affecté à votre appartenance au comité.",
+    "noDescription": "Aucune description",
+    "unknown": "Inconnu",
+    "loadingEllipsis": "Chargement…",
+    "unavailable": "Indisponible",
+    "membersCount": "{{count}} membres",
+    "openProject": "Ouvrir le projet",
+    "table": {
+      "project": "Projet",
+      "status": "Statut",
+      "budget": "Budget",
+      "allocatedToDate": "Alloué à ce jour",
+      "progress": "Progression",
+      "committee": "Comité",
+      "action": "Action"
+    }
+  },
+  "kpis": {
+    "availableFunds": "Fonds disponibles",
+    "availableFundsNegative": "Le montant engagé sur les projets ouverts dépasse les cotisations vérifiées — voir la section Finances pour le détail.",
+    "availableFundsPositive": "Cotisations vérifiées moins les allocations de fonds aux projets.",
+    "revenueVsLastMonth": "revenus vs mois dernier",
+    "projects": "Projets",
+    "inSetup": "En préparation",
+    "active": "Actif",
+    "completed": "Terminé",
+    "delayed": "En retard",
+    "subscribers": "Abonnés",
+    "committees": "Comités",
+    "working": "Fonctionnels",
+    "attention": "Attention",
+    "blocked": "Bloqués"
+  },
+  "projectHealth": {
+    "title": "Santé des projets",
+    "projectCount": "{{count}} projets",
+    "viewAll": "Voir tout",
+    "empty": "Aucun projet actif",
+    "emptyNote": "Les projets apparaîtront ici une fois créés.",
+    "noCommittee": "Aucun comité affecté",
+    "noActivity": "Aucune activité enregistrée",
+    "unassigned": "Non affecté",
+    "table": {
+      "project": "Projet",
+      "leader": "Responsable",
+      "budget": "Budget",
+      "collected": "Collecté",
+      "spent": "Dépensé",
+      "remaining": "Restant",
+      "progress": "Progression",
+      "status": "Statut",
+      "lastActivity": "Dernière activité"
+    }
+  },
+  "projectMap": {
+    "title": "Carte des projets",
+    "withLocation_one": "{{count}} projet avec un emplacement enregistré",
+    "withLocation_other": "{{count}} projets avec un emplacement enregistré",
+    "noneSet": "Aucun emplacement de projet défini pour le moment",
+    "emptyTitle": "Aucun emplacement défini",
+    "emptyNote": "Définissez un emplacement sur un projet pour le voir apparaître ici."
+  },
+  "activityTimeline": {
+    "title": "Activité récente",
+    "today": "Aujourd'hui",
+    "empty": "Aucune activité aujourd'hui",
+    "emptyNote": "Les changements récents apparaîtront ici.",
+    "seeMore": "Voir plus"
+  },
+  "reportsSummary": {
+    "title": "Rapports",
+    "subtitle": "Téléchargez un rapport PDF en un clic",
+    "projectsReport": "Rapport des projets",
+    "subscriptionsReport": "Rapport des cotisations",
+    "membersReport": "Rapport des abonnés",
+    "footnote": "Un rapport annuel dédié avec statut de publication n'est pas encore disponible — ce sont les exports existants pour les abonnés, cotisations et projets."
+  },
+  "memberHealth": {
+    "title": "Santé des abonnés",
+    "newThisMonth": "Nouveaux abonnés ce mois-ci",
+    "expiring30d": "Cotisations expirant (30j)",
+    "inactive": "Abonnés inactifs",
+    "footnote": "Les soldes impayés ne sont pas encore disponibles — aucun barème de cotisation n'est suivi par abonné."
+  },
+  "dues": {
+    "title": "Cotisations annuelles — {{year}}",
+    "expected": "Attendu",
+    "collected": "Collecté",
+    "outstanding": "En attente",
+    "overdueMembers": "Membres en retard",
+    "collectionRate": "Taux de collecte"
+  },
+  "quickStats": {
+    "title": "Statistiques rapides",
+    "topFundedProjects": "Projets les mieux financés",
+    "noProjectsYet": "Aucun projet pour le moment.",
+    "topDonors": "Meilleurs donateurs",
+    "noDonationsYet": "Aucun don pour le moment.",
+    "highestSpending": "Projets aux dépenses les plus élevées",
+    "noExpensesYet": "Aucune dépense pour le moment.",
+    "finishingThisMonth": "Se terminant ce mois-ci",
+    "nothingFinishing": "Rien ne se termine ce mois-ci.",
+    "newestSubscribers": "Nouveaux abonnés",
+    "noSubscribersYet": "Aucun abonné pour le moment.",
+    "unknown": "Inconnu"
+  },
+  "revenueChart": {
+    "title": "Revenus vs Dépenses",
+    "subtitle": "12 derniers mois, cotisations, dons et dépenses",
+    "subscriptions": "Cotisations",
+    "donations": "Dons",
+    "expenses": "Dépenses"
+  },
+  "upcoming": {
+    "title": "À venir",
+    "next30Days": "Prochains 30 jours",
+    "subscriptionRenewal": "Renouvellement de cotisation de {{name}}",
+    "projectDeadline": "Échéance du projet {{name}}",
+    "subscriberFallback": "Abonné",
+    "empty": "Aucun événement à venir",
+    "emptyNote": "Rien de prévu dans les 30 prochains jours.",
+    "footnote": "Les dates d'assemblée annuelle et de réunions de comité ne sont pas encore suivies dans le système."
+  }
+}

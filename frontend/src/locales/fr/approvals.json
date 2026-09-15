@@ -1,0 +1,126 @@
+{
+  "actionCenter": {
+    "title": "Centre d'actions",
+    "subtitle": "Tout ce qui attend votre approbation",
+    "processing": "Traitement…",
+    "loadError": "Impossible de charger les approbations en attente.",
+    "empty": "Rien n'attend votre approbation pour le moment.",
+    "viewAll": "Voir tout ({{count}})",
+    "categories": {
+      "all": "Tout",
+      "subscriptions": "Cotisations",
+      "donations": "Dons",
+      "expenses": "Dépenses",
+      "phase_requests": "Demandes de phase"
+    }
+  },
+  "subscriptionPayment": {
+    "badge": "Paiement de cotisation",
+    "unknownSubscriber": "Abonné inconnu",
+    "annualSubscription": "Cotisation annuelle",
+    "viewReceipt": "Voir le reçu",
+    "approveSuccess": "Paiement de cotisation approuvé.",
+    "approveError": "Impossible d'approuver ce paiement de cotisation."
+  },
+  "expenseApproval": {
+    "badge": "Approbation de dépense",
+    "supplier": "Fournisseur : {{name}}",
+    "unknownSupplier": "Inconnu",
+    "project": "Projet : {{name}}",
+    "noProject": "Aucun projet",
+    "invoiceNumber": "Facture n° {{number}}",
+    "viewInvoice": "Voir la facture",
+    "approveSuccess": "Dépense approuvée.",
+    "approveError": "Impossible d'approuver cette dépense.",
+    "rejectSuccess": "Dépense rejetée.",
+    "rejectError": "Impossible de rejeter cette dépense."
+  },
+  "donationApproval": {
+    "badge": "Approbation de don",
+    "donor": "Donateur : {{name}}",
+    "unknownDonor": "Inconnu",
+    "project": "Projet : {{name}}",
+    "noProject": "Aucun projet",
+    "viewReceipt": "Voir le reçu",
+    "approveSuccess": "Don approuvé.",
+    "approveError": "Impossible d'approuver ce don.",
+    "rejectSuccess": "Don rejeté.",
+    "rejectError": "Impossible de rejeter ce don."
+  },
+  "phaseRequest": {
+    "badge": "Demande de changement de phase",
+    "unknownProject": "Projet inconnu",
+    "committeeLeader": "Responsable de comité : {{name}}",
+    "unknown": "Inconnu",
+    "viewProof": "Voir la pièce justificative",
+    "viewProofCount": "Voir les pièces justificatives ({{count}})",
+    "rejectTitle": "Rejeter la demande de phase",
+    "rejectDescription": "Un motif est requis pour rejeter cette demande de phase.",
+    "approveSuccess": "Demande de phase approuvée.",
+    "approveError": "Impossible d'approuver cette demande de phase.",
+    "rejectSuccess": "Demande de phase rejetée.",
+    "rejectError": "Impossible de rejeter cette demande de phase."
+  },
+  "rejectModal": {
+    "rejectExpenseTitle": "Rejeter la dépense",
+    "rejectExpenseDescription": "Un motif est requis pour rejeter cette dépense.",
+    "rejectDonationTitle": "Rejeter le don",
+    "rejectDonationDescription": "Un motif est requis pour rejeter ce don.",
+    "rejectionTypeLabel": "Type de rejet",
+    "reasonPlaceholder": "Motif du rejet",
+    "rejecting": "Rejet en cours…"
+  },
+  "rejectionTypes": {
+    "invoiceIssue": {
+      "label": "Problème de facture",
+      "description": "Le responsable peut remplacer la facture et soumettre à nouveau."
+    },
+    "expenseDetailsIssue": {
+      "label": "Problème sur les détails de la dépense",
+      "description": "La dépense devient en lecture seule ; le responsable doit en créer une nouvelle."
+    },
+    "receiptIssue": {
+      "label": "Problème de reçu",
+      "description": "Le responsable peut remplacer le reçu et soumettre à nouveau."
+    },
+    "donationDetailsIssue": {
+      "label": "Problème sur les détails du don",
+      "description": "Le don devient en lecture seule ; le responsable doit en créer un nouveau."
+    }
+  },
+  "workflowActions": {
+    "submit": "Soumettre",
+    "submitAgain": "Soumettre à nouveau",
+    "markPaid": "Marquer comme payé"
+  },
+  "phaseRequestsPage": {
+    "title": "Demandes de phase en attente",
+    "description": "Demandes des responsables de comité pour faire avancer la phase d'exécution d'un projet, en attente d'examen.",
+    "loadError": "Impossible de charger les demandes de phase en attente.",
+    "approveError": "Impossible d'approuver cette demande de phase.",
+    "rejectError": "Impossible de rejeter cette demande de phase.",
+    "pendingRequests": "Demandes en attente",
+    "awaitingReview_one": "{{count}} en attente d'examen",
+    "awaitingReview_other": "{{count}} en attente d'examen",
+    "empty": "Aucune demande de phase en attente pour le moment.",
+    "unknownProject": "Projet inconnu",
+    "requestedBy": "Demandé par {{name}} • {{date}}",
+    "unknown": "Inconnu"
+  },
+  "deletionRequestsPage": {
+    "title": "Demandes de suppression en attente",
+    "description": "Demandes des responsables de comité pour supprimer un projet, en attente d'examen.",
+    "loadError": "Impossible de charger les demandes de suppression en attente.",
+    "approveError": "Impossible d'approuver cette demande de suppression.",
+    "rejectError": "Impossible de rejeter cette demande de suppression.",
+    "pendingRequests": "Demandes en attente",
+    "awaitingReview_one": "{{count}} en attente d'examen",
+    "awaitingReview_other": "{{count}} en attente d'examen",
+    "empty": "Aucune demande de suppression en attente pour le moment.",
+    "requestedBy": "Demandé par {{name}} • {{date}}",
+    "unknown": "Inconnu",
+    "approveAndDelete": "Approuver et supprimer",
+    "rejectTitle": "Rejeter la demande de suppression",
+    "rejectDescription": "Un motif est requis pour rejeter cette demande de suppression."
+  }
+}

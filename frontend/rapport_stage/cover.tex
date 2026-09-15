@@ -1,0 +1,77 @@
+% ============================================================================
+% Cover page — mirrors the reference report's layout: blue frame border,
+% two logo placeholders (top-left: school; top-right: host organism), an
+% institutional banner, a blue "STAGE INGÉNIEUR D'ÉTUDES" box, project
+% title + subtitle, and a Réalisé par / Superviseur / Tuteur académique
+% block. Everything institution-specific is left as an explicit
+% placeholder, matching Chapitre 1 (which is not written yet) and the
+% reference's own "À préciser" convention.
+% ============================================================================
+\begin{titlepage}
+\thispagestyle{empty}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+  \raggedright
+  \fbox{\parbox[c][1.6cm][c]{4.2cm}{%
+    \centering
+    \includegraphics[width=3.8cm,height=1.3cm,keepaspectratio]{images.png}
+}}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \raggedleft
+  \fbox{\parbox[c][1.6cm][c]{4.2cm}{%
+    \centering
+    \includegraphics[width=3.8cm,height=1.3cm,keepaspectratio]{logo.png}
+}}
+\end{minipage}
+
+\vspace{2cm}
+
+\begin{center}
+  {\bfseries\large CYCLE INGÉNIEUR --- Ecole Polytechnique D'Agadir}\\[0.3cm]
+  {\bfseries\large FILIÈRE Génie Informatique}
+
+  \vspace{1.8cm}
+
+  \colorbox{reportblue}{%
+    \parbox[c][1.3cm][c]{9.5cm}{\centering\color{white}\Large\bfseries STAGE INGÉNIEUR D'ÉTUDES}%
+  }
+
+  \vspace{2.4cm}
+  {\Huge\bfseries Plateforme de gestion des abonnés \\[0.2cm] et des projets d'une association}
+
+  \vspace{0.6cm}
+
+  {\itshape\large
+    Conception et développement d'une application web pour la gestion\\
+    des cotisations, des comités de projets et des opérations financières\\
+    d'une association
+  }
+
+  \vspace{3cm}
+\end{center}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+  {\color{reportbluedark}\bfseries Réalisé par :}\\
+  BOUDRAR Mohamed
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+
+    {\color{reportbluedark}\bfseries Encadré par :}\\
+    À préciser
+
+  \end{minipage}
+
+\vfill
+\vspace{2.5cm}
+
+\begin{center}
+  {\bfseries Année universitaire 2026 - 2027}
+\end{center}
+
+\vspace{1cm}
+
+\end{titlepage}

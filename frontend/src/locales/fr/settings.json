@@ -1,0 +1,32 @@
+{
+  "title": "Paramètres de l'association",
+  "description": "Source unique de vérité pour l'identité de l'association, ses coordonnées et les valeurs par défaut d'adhésion.",
+  "saveSuccess": "Paramètres de l'association enregistrés.",
+  "saveError": "Impossible d'enregistrer les paramètres. Veuillez réessayer.",
+  "associationInfo": {
+    "title": "Informations de l'association",
+    "subtitle": "Nom, logo et description affichés dans toute l'application.",
+    "logoAlt": "Logo de l'association",
+    "replaceLogo": "Remplacer le logo",
+    "uploadLogo": "Téléverser un logo",
+    "fileTypes": "PNG, JPG, JPEG ou SVG",
+    "associationName": "Nom de l'association",
+    "descriptionLabel": "Description"
+  },
+  "contactInfo": {
+    "title": "Coordonnées",
+    "subtitle": "Utilisées dans les rapports, e-mails et le portail des membres.",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "website": "Site web"
+  },
+  "membership": {
+    "title": "Adhésion",
+    "subtitle": "Montant et devise par défaut de la cotisation annuelle.",
+    "annualSubscriptionAmount": "Montant de la cotisation annuelle",
+    "currency": "Devise"
+  },
+  "saving": "Enregistrement…",
+  "saveSettings": "Enregistrer les paramètres"
+}

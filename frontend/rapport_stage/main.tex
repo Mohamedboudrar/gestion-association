@@ -1,0 +1,280 @@
+% !TEX program = pdflatex
+% ============================================================================
+% Rapport de stage ingénieur — Plateforme de gestion des adhérents et des
+% projets associatifs
+% Compiles with pdflatex (2 passes needed for TOC/LOF/LOT/refs, as usual).
+% ============================================================================
+\documentclass[a4paper,12pt]{report}
+
+% ------------------------------------------------------------------ Encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{mathptmx} % Times-like text font, safe/standard on Overleaf
+
+% ------------------------------------------------------------------ Layout
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage{amsmath,amssymb}
+\usepackage{float} % provides the [H] float specifier used by the figures below
+
+% ------------------------------------------------------------------ TikZ
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.multipart,calc,fit,backgrounds}
+
+% ------------------------------------------------------------------ Hyperref (load late)
+\usepackage[hidelinks]{hyperref}
+
+% ============================================================================
+% Colors — approximate the reference report's blue corporate palette
+% ============================================================================
+\definecolor{reportblue}{RGB}{68,105,168}
+\definecolor{reportbluedark}{RGB}{41,74,128}
+\definecolor{lightblue}{RGB}{221,231,247}
+\definecolor{lightblueborder}{RGB}{116,148,196}
+\definecolor{panelgray}{RGB}{245,246,248}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=reportbluedark,
+  citecolor=reportbluedark,
+  urlcolor=reportbluedark,
+  pdftitle={Plateforme de gestion des adhérents et des projets associatifs},
+  pdfauthor={BOUDRAR Mohamed},
+  pdfsubject={Rapport de stage ingénieur},
+}
+
+% ============================================================================
+% Section numbering: I / II / III ... then 1 / 2 / 3 ... then a / b / c ...
+% ============================================================================
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}}
+
+\usepackage{titlesec}
+\titleformat{\section}
+  {\color{reportblue}\Large\bfseries}{\thesection.}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.8em}
+
+\titleformat{\subsection}
+  {\color{reportblue}\large\bfseries}{\thesubsection.}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{1.1em}{0.6em}
+
+\titleformat{\subsubsection}
+  {\color{reportblue}\normalsize\bfseries}{\thesubsubsection.}{0.6em}{}
+\titlespacing*{\subsubsection}{0pt}{0.9em}{0.4em}
+
+% ============================================================================
+% Page style: plain page numbers only, no running header — matches the
+% reference report exactly (it has no repeating "Chapitre N" header, only a
+% one-time recap line at the top of each chapter's first content page, added
+% manually by \openchapter below).
+% ============================================================================
+\pagestyle{plain}
+\renewcommand{\headrulewidth}{0pt}
+
+% ============================================================================
+% Custom "chapter" mechanism.
+%
+% \chapter itself is never used in this document. Using it would mean
+% fighting titlesec/report.cls to suppress its default heading style while
+% still keeping the figure/table "N.M" numbering and TOC entry it wires up
+% automatically. Instead \openchapter below:
+%   1. advances the real \chapter counter by hand (\stepcounter) — this is
+%      what report.cls's own \thefigure/\thetable definitions key off, so
+%      Figure/Table numbering ("3.1", "3.2", ...) keeps working exactly as
+%      if \chapter had been called;
+%   2. writes the TOC entry by hand (\addcontentsline);
+%   3. draws a dedicated banner page ("CHAPITRE N :" + title), matching the
+%      reference report's own chapter-opening pages;
+%   4. prints the one-time "Chapitre N : Title" recap line + rule at the top
+%      of the chapter's first real content page (never repeated afterwards
+%      — the reference report does not use a repeating running header).
+% ============================================================================
+\makeatletter
+\newcommand{\customtoc}{\@starttoc{toc}}
+\newcommand{\customlof}{\@starttoc{lof}}
+\newcommand{\customlot}{\@starttoc{lot}}
+\makeatother
+
+\newcommand{\openchapter}[1]{%
+  \clearpage
+  \stepcounter{chapter}
+  \phantomsection
+  \addcontentsline{toc}{chapter}{\thechapter.~~#1}
+  \thispagestyle{empty}
+  \vspace*{4.5cm}
+  \begin{center}
+    \colorbox{reportblue}{%
+      \parbox{0.82\textwidth}{\centering\color{white}\Large\bfseries CHAPITRE \thechapter~:}%
+    }\\[2.2cm]
+    {\color{reportblue}\Huge\bfseries #1}
+  \end{center}
+  \clearpage
+  \noindent{\large\bfseries Chapitre \thechapter\ : #1}\par
+  \noindent\rule{\linewidth}{0.6pt}\par
+  \vspace{0.8cm}
+}
+
+% Front-matter section (Remerciements, Table des matières, ...): same blue
+% heading style, unnumbered, gets its own TOC entry, no chapter banner.
+\newcommand{\frontsection}[1]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{#1}
+  \thispagestyle{plain}
+  {\color{reportblue}\Huge\bfseries #1}\par
+  \vspace{1cm}
+}
+
+% ============================================================================
+% Reusable TikZ styles for the diagrams (tree diagrams, class diagram,
+% architecture pipeline, use-case diagram) — one consistent visual language
+% across the whole report, mirroring the reference report's own style.
+% ============================================================================
+\tikzset{
+  % --- Problem tree / solution tree (chapitre 2) -----------------------------
+  treeeffect/.style={
+    rectangle, rounded corners, draw=reportbluedark, fill=white,
+    text width=4.8cm, align=center, minimum height=1cm, font=\scriptsize
+  },
+  treecore/.style={
+    rectangle, rounded corners, draw=reportbluedark, fill=reportblue,
+    text width=9.5cm, align=center, minimum height=1cm,
+    font=\bfseries\small\color{white}
+  },
+  treecause/.style={
+    rectangle, rounded corners, draw=lightblueborder, fill=lightblue,
+    text width=3.7cm, align=center, minimum height=1.3cm, font=\scriptsize
+  },
+  treeroot/.style={
+    rectangle, rounded corners, draw=lightblueborder, fill=panelgray,
+    text width=3.7cm, align=center, minimum height=1.3cm, font=\scriptsize
+  },
+  % --- Use-case diagram (chapitre 3) ----------------------------------------
+  % text width is kept at 2.9cm on purpose: the ellipse shape sizes itself so
+  % that the text box fits *inside* the ellipse, which multiplies the width by
+  % sqrt(2). 2.9cm of text therefore yields an ellipse ~4.2cm wide, which is
+  % what the two-column layout of the diagram is built around.
+  ucase/.style={
+    ellipse, draw=reportblue, fill=lightblue, align=center,
+    text width=2.9cm, inner sep=1pt, minimum height=1.15cm, font=\scriptsize
+  },
+  ucline/.style={draw=reportblue, semithick},
+  actorline/.style={draw=reportbluedark, thick},
+  sysboundary/.style={draw=reportbluedark, thick, rounded corners=2pt},
+  % --- Class diagram (chapitre 3) -------------------------------------------
+  umlclass/.style={
+    rectangle split, rectangle split parts=2,
+    rectangle split part fill={lightblue, white},
+    draw=lightblueborder, thick, align=left, text width=3.3cm,
+    inner sep=3pt, font=\scriptsize
+  },
+  rel/.style={draw=reportblue, thick},
+  mult/.style={font=\tiny, inner sep=1.5pt, fill=white},
+  % --- Architecture / états / divers ----------------------------------------
+  archbox/.style={
+    rectangle, rounded corners, draw=lightblueborder, fill=lightblue,
+    text width=3.3cm, align=center, minimum height=1.6cm, font=\small
+  },
+  statebox/.style={
+    rectangle, rounded corners, draw=reportblue, fill=lightblue,
+    align=center, inner sep=6pt, font=\small
+  },
+  stateterm/.style={
+    rectangle, rounded corners, draw=reportbluedark, fill=white,
+    align=center, inner sep=6pt, font=\small, very thick
+  },
+  busline/.style={draw=reportblue, thick},
+  bluearrow/.style={-{Latex[length=2.2mm]}, draw=reportblue, thick},
+}
+
+% A minimal UML-style stick-figure actor, used by the use-case diagram.
+% #1 = position, e.g. (2,-3)   #2 = node name, for \draw references
+% #3 = label, printed under the figure
+% Besides drawing the figure, the macro declares an invisible node named #2
+% covering the figure, so that (#2.east) / (#2.west) are usable anchors for
+% the association lines.
+\newcommand{\umlactor}[3]{%
+  \begin{scope}[shift={#1}]
+    \draw[actorline] (0,0.62) circle (0.2);
+    \draw[actorline] (0,0.42) -- (0,-0.24);
+    \draw[actorline] (-0.3,0.18) -- (0.3,0.18);
+    \draw[actorline] (0,-0.24) -- (-0.26,-0.7);
+    \draw[actorline] (0,-0.24) -- (0.26,-0.7);
+    \node[align=center, text width=1.8cm, font=\scriptsize\bfseries,
+          anchor=north, inner sep=1pt] at (0,-0.82) {#3};
+  \end{scope}
+  \node[draw=none, fill=none, inner sep=0pt, minimum width=0.62cm,
+        minimum height=1.5cm] (#2) at #1 {};
+}
+
+
+% ============================================================================
+% Listings style (for the API-contract code snippets in the annex)
+% ============================================================================
+\lstdefinelanguage{json}{
+  showstringspaces=false,
+  breaklines=true,
+  sensitive=true,
+  morekeywords={true,false,null},
+  morestring=[b]",
+  morecomment=[l]{//},
+}
+
+\lstdefinestyle{jsonstyle}{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{panelgray},
+  frame=single,
+  rulecolor=\color{lightblueborder},
+  breaklines=true,
+  columns=fullflexible,
+  keywordstyle=\color{reportbluedark}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{reportbluedark},
+  showstringspaces=false,
+}
+\lstset{style=jsonstyle}
+
+\captionsetup{labelfont={bf,color=reportbluedark},font=small,margin=1cm}
+
+% ============================================================================
+\begin{document}
+
+\input{cover}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{remerciements}
+
+\frontsection{Table des matières}
+\customtoc
+
+\frontsection{Table des illustrations}
+{\large\bfseries\color{reportbluedark} Figures}\par\vspace{0.3cm}
+\customlof
+\vspace{1cm}
+{\large\bfseries\color{reportbluedark} Tableaux}\par\vspace{0.3cm}
+\customlot
+
+\input{introduction-generale}
+
+\input{chapter1}
+\input{chapter2}
+\input{chapter3}
+
+\input{conclusion-generale}
+\input{bibliographie}
+\input{annexes}
+
+\end{document}

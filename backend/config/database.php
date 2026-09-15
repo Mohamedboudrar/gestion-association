@@ -59,6 +59,16 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
+            // Without this, MySQL falls back to its server default (SYSTEM),
+            // i.e. the OS timezone. On a host set to Africa/Casablanca that
+            // occasionally makes a valid-looking, in-range datetime get
+            // rejected with "Incorrect datetime value": Morocco pauses
+            // permanent DST for Ramadan, so the day it resumes has a
+            // spring-forward gap where an otherwise normal local time (e.g.
+            // 2026-03-22 02:20:59) never actually existed. Pinning the
+            // session to UTC — matching config('app.timezone') — sidesteps
+            // that entirely, since UTC has no DST transitions of its own.
+            'timezone' => env('DB_TIMEZONE', '+00:00'),
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 Mysql::ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],

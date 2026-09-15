@@ -1,0 +1,37 @@
+\frontsection{Conclusion Générale}
+
+Ce stage a permis de concevoir et de développer une plateforme web complète
+de gestion associative, couvrant l'ensemble des besoins exprimés dans le
+cahier des charges : gestion des adhérents et de leurs cotisations annuelles,
+suivi d'un solde dû par adhérent et par année, gestion des projets
+associatifs à travers un cycle de vie complet (de la création à la clôture
+ou à l'annulation), constitution de comités dédiés avec des droits de saisie
+propres à chaque rôle, workflow d'approbation des dons et des dépenses avec
+justificatifs, génération automatique des rapports de clôture de projet et
+des rapports association, journal d'activité et centre de notifications, et
+consultation en libre-service par chaque adhérent de son propre historique.
+
+Le système repose sur une architecture web en trois niveaux (interface React,
+API REST Laravel, base de données MySQL), avec une autorisation à deux axes
+— rôle global dans l'association et rôle au sein d'un comité de projet — qui
+reflète fidèlement la manière dont une association de ce type fonctionne
+réellement : un même adhérent peut être simple cotisant sur l'ensemble de
+l'association et trésorier d'un comité sur un projet particulier. Cette
+séparation, au cœur du cahier des charges, structure l'ensemble du modèle de
+données et du système de permissions présentés au chapitre~3.
+
+Ce projet a permis de consolider des compétences techniques en conception
+d'API REST sécurisées, en modélisation de workflows métier (cycles de vie,
+approbations à plusieurs états) et en développement d'interfaces web
+réactives, ainsi que des compétences plus larges : traduire un besoin
+métier exprimé en langage naturel en un modèle de données et un système de
+permissions cohérents, et itérer sur ce modèle à mesure que des cas
+particuliers apparaissent.
+
+Plusieurs pistes d'évolution restent ouvertes pour la suite du projet :
+une application mobile pour les adhérents, afin de faciliter la consultation
+de leur historique et le paiement de leur cotisation ; des notifications par
+SMS pour les adhérents ne disposant pas d'un smartphone ou d'un accès
+régulier à internet, en complément des notifications actuelles ; et un
+support multi-association, pour permettre à la même plateforme de servir
+plusieurs associations indépendantes plutôt qu'une seule instance dédiée.

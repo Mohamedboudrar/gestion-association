@@ -1,0 +1,16 @@
+{
+  "page": {
+    "title": "Rapports",
+    "description": "Téléchargez les rapports et exports pour les abonnés, cotisations et projets.",
+    "downloadError": "Impossible de télécharger ce rapport.",
+    "downloadTypeLine": "Télécharger le rapport {{type}}",
+    "cards": {
+      "membersPdf": "Abonnés PDF",
+      "subscriptionsPdf": "Cotisations PDF",
+      "projectsPdf": "Projets PDF",
+      "membersExcel": "Abonnés Excel",
+      "subscriptionsExcel": "Cotisations Excel",
+      "projectsExcel": "Projets Excel"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+\frontsection{Annexes}
+
+Cette section regroupe des documents complémentaires au rapport, trop
+volumineux ou trop techniques pour figurer dans le corps du texte.
+
+\subsection*{Annexe A : Extrait du contrat d'API --- Cotisations dues}
+\addcontentsline{toc}{section}{Annexe A : Extrait du contrat d'API}
+
+L'extrait suivant illustre la réponse de l'API pour la consultation des
+cotisations dues d'un adhérent (\texttt{GET /api/dues}), et le corps de
+requête pour l'exonération d'une cotisation
+(\texttt{POST /api/dues/\{id\}/waive}).
+
+\begin{lstlisting}[language=json, caption={Réponse de GET /api/dues (extrait)}, label={lst:dues-api}]
+{
+  "data": [
+    {
+      "id": 128,
+      "member": { "id": 42, "name": "Adherent Test" },
+      "year": 2026,
+      "amount_due": 200.00,
+      "amount_paid": 120.00,
+      "balance": 80.00,
+      "status": "partial",
+      "due_date": "2026-12-31",
+      "paid_at": null,
+      "waived_reason": null,
+      "created_at": "2026-01-01T00:30:00.000000Z"
+    }
+  ]
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=json, caption={Corps de requête de POST /api/dues/\{id\}/waive}, label={lst:dues-waive}]
+{
+  "reason": "Difficulte financiere temporaire, dispense accordee par le bureau."
+}
+\end{lstlisting}
+
+\subsection*{Annexe B : Matrice des rôles et des permissions}
+\addcontentsline{toc}{section}{Annexe B : Matrice des rôles et des permissions}
+
+Le tableau~\ref{tab:permissions} reproduit la matrice complète des droits
+accordés à chacun des huit rôles globaux, telle qu'implémentée dans le
+système de permissions (Spatie Permission). \emph{view}/\emph{create}/
+\emph{update}/\emph{delete}/\emph{verify} correspondent aux opérations
+autorisées sur chaque type de ressource.
+
+\begin{center}
+\begin{longtable}{@{}p{2.6cm}p{2.1cm}p{2.9cm}p{1.2cm}p{2.1cm}p{2.4cm}p{2.4cm}@{}}
+\toprule
+\textbf{Rôle} & \textbf{Adhérents} & \textbf{Cotisations} & \textbf{Dues} & \textbf{Projets} & \textbf{Dons} & \textbf{Dépenses} \\
+\midrule
+\endhead
+Président & view/create/\allowbreak update/delete & view/create/\allowbreak update/delete/\allowbreak verify & view & view/create/\allowbreak update/delete & view/create/\allowbreak update/delete & view/create/\allowbreak update/delete \\
+Vice-président & view/update & view & view & view/create/\allowbreak update & view/create/\allowbreak update & view/create/\allowbreak update \\
+Trésorier & view & view/create/\allowbreak update/verify & view & view & view/create/\allowbreak update/delete & view/create/\allowbreak update/delete \\
+Vice-trésorier & view & view/verify & view & view & view/create/\allowbreak update/delete & view/create/\allowbreak update/delete \\
+Secrétaire général & view/create/\allowbreak update & view & view & view & view/create/\allowbreak update & view/create/\allowbreak update \\
+Vice-secrétaire général & view/update & view & view & view & view/create/\allowbreak update & view/create/\allowbreak update \\
+Conseiller & view & view & view & view & view/create/\allowbreak update & view/create/\allowbreak update \\
+Adhérent (abonné) & vue propre uniquement & vue propre uniquement & vue propre uniquement & projets du comité uniquement & --- & --- \\
+\bottomrule
+\caption{Matrice des rôles et des permissions.}
+\label{tab:permissions}
+\end{longtable}
+\end{center}
+
+À ces permissions globales s'ajoute, indépendamment, le rôle de comité
+(président de comité, trésorier, secrétaire, membre) décrit au
+chapitre~3 (section~III), qui gouverne la saisie des opérations
+\emph{à l'échelle d'un projet donné}, quel que soit le rôle global du
+membre.
+
+\subsection*{Annexe C : Schéma de base de données (synthèse)}
+\addcontentsline{toc}{section}{Annexe C : Schéma de base de données}
+
+Le tableau~\ref{tab:schema} résume les principales tables du schéma
+relationnel et leurs colonnes clés.
+
+\begin{center}
+\begin{longtable}{@{}p{3.3cm}p{10.8cm}@{}}
+\toprule
+\textbf{Table} & \textbf{Colonnes clés} \\
+\midrule
+\endhead
+\texttt{users} & name, email, password, passkey\_hash \\
+\texttt{members} & user\_id, phone, address \\
+\texttt{subscriptions} & member\_id, due\_id, amount, payment\_method, receipt\_number, payment\_date, expires\_at, status, verified\_by, verified\_at \\
+\texttt{dues} & member\_id, year, amount\_due, amount\_paid, balance, status, due\_date, paid\_at, waived\_reason (unique sur member\_id + year) \\
+\texttt{projects} & name, description, start\_date, end\_date, budget, status, phase, latitude, longitude, manager\_id \\
+\texttt{member\_project} & member\_id, project\_id, committee\_role, responsibility, assigned\_by, assigned\_at \\
+\texttt{committee\_assignments} & project\_id, member\_id, committee\_role, assigned\_by/at, removed\_by/at, reason, action \\
+\texttt{donations} & member\_id, project\_id, donor\_name, amount, payment\_method, receipt\_number, donation\_date, status, approved\_by/at, rejected\_by/at, rejection\_reason, rejection\_type \\
+\texttt{expenses} & project\_id, supplier\_name, description, amount, payment\_method, invoice\_number, expense\_date, status, approved\_by/at, rejected\_by/at, paid\_by/at \\
+\texttt{project\_fund\_allocations} & project\_id, amount, allocation\_date, proof\_file, recorded\_by \\
+\texttt{project\_reports} & project\_id, generated\_by, file\_path, summary (JSON) \\
+\texttt{notifications} & user\_id, type, title, message, subject\_type, subject\_id, read\_at \\
+\texttt{association\_settings} & association\_name, address, phone, email, annual\_subscription\_amount, currency \\
+\bottomrule
+\caption{Synthèse du schéma de base de données.}
+\label{tab:schema}
+\end{longtable}
+\end{center}
