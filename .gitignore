@@ -1,1 +1,11 @@
 .DS_Store
+
+# Internship report sources and generated archives
+rapport-stage.zip
+rapport_stage.zip
+rapport-stage/
+rapport_stage/
+**/rapport-stage.zip
+**/rapport_stage.zip
+**/rapport-stage/
+**/rapport_stage/
